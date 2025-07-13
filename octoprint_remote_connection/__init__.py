@@ -7,6 +7,8 @@
 import octoprint.plugin
 import serial
 
+from octoprint.util.comm import BufferedReadlineWrapper
+
 class RemoteConnectionPlugin(octoprint.plugin.SettingsPlugin, octoprint.plugin.AssetPlugin, octoprint.plugin.TemplatePlugin):
     def get_settings_defaults(self):
         return {
@@ -47,10 +49,12 @@ class RemoteConnectionPlugin(octoprint.plugin.SettingsPlugin, octoprint.plugin.A
         if not port.startswith("REMOTE:"):
             return None
 
-        if baudrate != 0:
-            self._logger.warn(f"Ignoring baudrate {baudrate} for simple TCP/IP connection. Use an RFC2217 connection if you need to control the baudrate from OctoPrint")
+        args = {
+            "baudrate": baudrate,
+            "timeout": read_timeout
+        }
 
-        return serial.serial_for_url(port[7:])
+        return BufferedReadlineWrapper(serial.serial_for_url(port[7:], **args))
 
 
 __plugin_name__ = "Remote Connection"

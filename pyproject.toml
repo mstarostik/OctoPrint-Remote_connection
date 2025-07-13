@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "OctoPrint-Remote_connection"
-version = "0.1.0"
+version = "0.1.1"
 description = "Connect to devices attached to another host via Serial over IP"
 authors = [
     {name = "Malte Starostik", email = "malte@starostik.de"}

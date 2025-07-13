@@ -24,7 +24,7 @@ $(function() {
             self.remotes.remove(remote);
         };
 
-        self.onBeforeBinding = function() {
+        self.onSettingsShown = function() {
             self.remotes(self.settingsViewModel.settings.plugins.remote_connection.remotes());
         };
     }

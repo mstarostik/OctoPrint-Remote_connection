@@ -8,7 +8,7 @@ authors:
 - Malte Starostik
 license: AGPL-3.0-or-later
 
-date: 2025-07-13
+date: 2025-07-14
 
 homepage: https://github.com/mstarostik/OctoPrint-Remote_connection
 source: https://github.com/mstarostik/OctoPrint-Remote_connection
@@ -19,6 +19,19 @@ follow_dependency_links: false
 tags:
 - connection
 - network
+
+screenshots:
+- url: /assets/img/plugins/remote_connection/settings.png
+  alt: Remote Connection Settings
+  caption: Remote Connection Settings
+- url: /assets/img/plugins/remote_connection/connecting.png
+  alt: Connection Widget With Remote Connection
+  caption: Connection Widget With Remote Connection
+- url: /assets/img/plugins/remote_connection/connection_established.png
+  alt: Remote Connection Established
+  caption: Remote Connection Established
+
+featuredimage: /assets/img/plugins/remote_connection/settings.png
 
 compatibility:
   python: ">=3,<4"
