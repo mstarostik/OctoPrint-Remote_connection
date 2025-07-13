@@ -24,7 +24,7 @@ class RemoteConnectionPlugin(octoprint.plugin.SettingsPlugin, octoprint.plugin.A
     def get_update_information(self):
         return {
             "remote_connection": {
-                "displayName": "Remote_connection Plugin",
+                "displayName": "Remote Connection Plugin",
                 "displayVersion": self._plugin_version,
 
                 # version check: github repository
@@ -63,7 +63,7 @@ def __plugin_load__():
 
     global __plugin_hooks__
     __plugin_hooks__ = {
-#        "octoprint.plugin.softwareupdate.check_config": __plugin_implementation__.get_update_information,
+        "octoprint.plugin.softwareupdate.check_config": __plugin_implementation__.get_update_information,
         "octoprint.comm.transport.serial.additional_port_names": __plugin_implementation__.get_additional_port_names,
         "octoprint.comm.transport.serial.factory": __plugin_implementation__.remote_connection_factory
     }
