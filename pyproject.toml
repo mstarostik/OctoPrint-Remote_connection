@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "OctoPrint-Remote_connection"
+version = "0.1.0"
+description = "Connect to devices attached to another host via Serial over IP"
+authors = [
+    {name = "Malte Starostik", email = "malte@starostik.de"}
+]
+readme = {file = "README.md", content-type = "markdown"}
+dynamic = [
+    "license"
+]
+
+requires-python = ">=3.7, <4"
+
+dependencies = []
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = [
+    "octoprint_remote_connection",
+    "octoprint_remote_connection.*"
+]
+
+[project.entry-points."octoprint.plugin"]
+remote_connection = "octoprint_remote_connection"
+
+[project.urls]
+Homepage = "https://github.com/mstarostik/OctoPrint-Remote_connection"
+
+[project.optional-dependencies]
+develop = [
+    "go-task-bin"
+]

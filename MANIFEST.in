@@ -1,0 +1,4 @@
+include README.md
+recursive-include octoprint_remote_connection/templates *
+recursive-include octoprint_remote_connection/translations *
+recursive-include octoprint_remote_connection/static *

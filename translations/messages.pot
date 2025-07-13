@@ -1,0 +1,74 @@
+# Translations template for PROJECT.
+# Copyright (C) 2025 The OctoPrint Project
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: i18n@octoprint.org\n"
+"POT-Creation-Date: 2025-07-13 02:55+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+
+#: octoprint_remote_connection/templates/remote_connection_settings.jinja2:1
+msgid "Remote Connections"
+msgstr ""
+
+#: octoprint_remote_connection/templates/remote_connection_settings.jinja2:3
+msgid ""
+"\n"
+"<p>\n"
+"    Configure the remote devices that you want to enable connecting to.\n"
+"</p>\n"
+msgstr ""
+
+#: octoprint_remote_connection/templates/remote_connection_settings.jinja2:11
+msgid "Hostname/IP"
+msgstr ""
+
+#: octoprint_remote_connection/templates/remote_connection_settings.jinja2:12
+msgid "Port"
+msgstr ""
+
+#: octoprint_remote_connection/templates/remote_connection_settings.jinja2:13
+msgid "Type"
+msgstr ""
+
+#: octoprint_remote_connection/templates/remote_connection_settings.jinja2:40
+msgid ""
+"\n"
+"<p>\n"
+"    <em>Raw</em> connections require the baudrate to be configured on the"
+" remote end and will ignore the setting in OctoPrint.\n"
+"    The remote end needs to pass any data between its socket and the "
+"actual device unaltered. As a listener you can use <em>set2net</em> in "
+"plain TCP mode, e.g.:\n"
+"</p>\n"
+"<pre><code>connection: &my-printer\n"
+"    accepter: tcp,1234\n"
+"    connector: serialdev,/dev/ttyUSB0,115200N81</code></pre>\n"
+"<p>\n"
+"   or with <em>socat</em>:\n"
+"  <code>\n"
+"  socat TCP-LISTEN:1234,reuseaddr,fork "
+"GOPEN:/dev/ttyUSB0,b115200,raw,echo=0\n"
+"  </code>\n"
+"</p>\n"
+"<p>\n"
+"    <em>RFC2217</em> connections pass the baudrate from OctoPrint to the "
+"remote end.\n"
+"    The remote end needs to talk RFC2217 and thus enable OctoPrint to "
+"control the serial port parameters. <em>ser2net</em> example:\n"
+"</p>\n"
+"<pre><code>connection: &my-printer\n"
+"    accepter: telnet(rfc2217),tcp,1234\n"
+"    connector: serialdev,/dev/ttyUSB0,115200N81</code></pre>\n"
+msgstr ""
+

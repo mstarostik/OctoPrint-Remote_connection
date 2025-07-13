@@ -1,0 +1,61 @@
+<h3>{{ _('Remote Connections') }}</h3>
+
+{% trans %}
+<p>
+    Configure the remote devices that you want to enable connecting to.
+</p>
+{% endtrans %}
+
+<form class="form-horizontal" onsubmit="return false;">
+    <div class="row-fluid">
+        <div class="span6"><h4>{{ _('Hostname/IP') }}</h4></div>
+        <div class="span2"><h4>{{ _('Port') }}</h4></div>
+        <div class="span2"><h4>{{ _('Type') }}</h4></div>
+    </div>
+    <div data-bind="foreach: remotes">
+        <div class="row-fluid" style="margin-bottom: 5px">
+            <div class="span6">
+                 <input type="text" class="span12" data-bind="value: host">
+            </div>
+            <div class="span2">
+                 <input type="text" class="span12" data-bind="value: port">
+            </div>
+            <div class="span2">
+                <select class="span12" data-bind="value: protocol">
+                    <option value="socket">Raw</option>
+                    <option value="rfc2217">RFC2217</option>
+                </select>
+            </div>
+            <div class="span2">
+                <a title="Remove Connection" class="btn btn-danger" data-bind="click: $parent.removeRemote"><i class="far fa-trash-alt"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="offset10 span2">
+            <a title="Add Connection" class="btn btn-primary" data-bind="click: addRemote"><i class="fas fa-plus"></i></a>
+        </div>
+    </div>
+</form>
+{% trans %}
+<p>
+    <em>Raw</em> connections require the baudrate to be configured on the remote end and will ignore the setting in OctoPrint.
+    The remote end needs to pass any data between its socket and the actual device unaltered. As a listener you can use <em>set2net</em> in plain TCP mode, e.g.:
+</p>
+<pre><code>connection: &my-printer
+    accepter: tcp,1234
+    connector: serialdev,/dev/ttyUSB0,115200N81</code></pre>
+<p>
+   or with <em>socat</em>:
+  <code>
+  socat TCP-LISTEN:1234,reuseaddr,fork GOPEN:/dev/ttyUSB0,b115200,raw,echo=0
+  </code>
+</p>
+<p>
+    <em>RFC2217</em> connections pass the baudrate from OctoPrint to the remote end.
+    The remote end needs to talk RFC2217 and thus enable OctoPrint to control the serial port parameters. <em>ser2net</em> example:
+</p>
+<pre><code>connection: &my-printer
+    accepter: telnet(rfc2217),tcp,1234
+    connector: serialdev,/dev/ttyUSB0,115200N81</code></pre>
+{% endtrans %}
